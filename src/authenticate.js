@@ -1,5 +1,6 @@
 const axios = require('axios');
 const config = require('../data/config')
+const handleError = require('./error/error')
 const { UnauthorizedError, ServerError, BadRequestError, ForbiddenError, NotFoundError, MethodNotAllowedError } = require('./error/error')
 
 const authenticate = async() => {
@@ -11,27 +12,11 @@ const authenticate = async() => {
                 return response.data.access_token;
             }
             else {
-                throw new ServerError();
+                throw new ServerError("auth");
             }
         }
     } catch (err) {
-        if (err.response) {
-            switch (err.response.status) {
-                case 400:
-                    throw new BadRequestError();
-                case 401:
-                    throw new UnauthorizedError();
-                case 403:
-                    throw new ForbiddenError();
-                case 404:
-                    throw new NotFoundError();
-                case 405:
-                    throw new MethodNotAllowedError();
-                default:
-                    throw new ServerError();
-            }
-        }
-        throw new ServerError();
+        handleError(err, "auth")
     }
 }
 
