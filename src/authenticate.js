@@ -1,7 +1,7 @@
 const axios = require('axios');
 const config = require('../data/config')
 const handleError = require('./error/error')
-const { UnauthorizedError, ServerError, BadRequestError, ForbiddenError, NotFoundError, MethodNotAllowedError } = require('./error/error')
+const { ServerError } = require('./error/error')
 
 const authenticate = async() => {
     const bodyParams = config.login.bodyParams

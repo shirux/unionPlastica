@@ -2,44 +2,55 @@ const path = require('path');
 const fs = require('fs');
 var FormData = require('form-data');
 const axios = require('axios');
-const config = require('../data/config');
-const { UnauthorizedError, ServerError, BadRequestError, ForbiddenError, NotFoundError, MethodNotAllowedError } = require('./error/errorList')
+const config = require('../data/config')
+const { ServerError } = require('./error/errorList')
+const handleError = require('./error/error')
 
-const sendFiles = async (access_token) => {
-    fs.readdirSync('D:/Programacion/trabajo/UnionPlastica/ApiRest/files/in').forEach(async (file) => {
-        try {
-            let formData = new FormData();
-            formData.append('file', file);
-            formData.append('idProv', 3000);
-            const header = {
-                headers: { Authorization: `Bearer ${access_token}` }
-            };
-            let response = await axios.post(`${config.prodUrl}${config.transit.url}`, formData, header)
-            console.log(file)
-            if (response) {
-                console.log(response.status)
+const sendFiles = async(file, access_token) => {
+    try {
+        let formData = new FormData();
+        formData.append('file', file);
+        formData.append('idProv', 1220393);
+        const header = {
+            headers: {Authorization: `Bearer ${access_token}`}
+        };
+        console.log(formData);
+        let response = await axios.post(`${config.prodUrl}${config.transit.url}`, formData, header)
+        // console.log(file)
+        console.log(response.status)
+        //if (response) {
+        //    if (response.status === 200) {
+        //    } else {
+        //        throw new ServerError("send_file");
+        //    }
+        // }
+    } catch (err) {
+        throw err
+    }
+}
+
+
+const processFiles = async (access_token) => {
+    try {
+        fs.readdirSync(`${config.filesPath}/in`).map(async file => {
+            try {
+                await sendFiles(file, access_token);
             }
-        } catch (err) {
-            
-            if (err.response) {
-                switch (err.response.status) {
-                    case 400:
-                        throw new BadRequestError();
-                    case 401:
-                        throw new UnauthorizedError();
-                    case 403:
-                        throw new ForbiddenError();
-                    case 404:
-                        throw new NotFoundError();
-                    case 405:
-                        throw new MethodNotAllowedError();
-                    default:
-                        throw new ServerError();
-                }
+            catch (err) {
+                console.log(err.response.data)
+                console.log("holis")
             }
-            throw new ServerError();
-        }
-    });
+        })  
+    } catch (err){
+        handleError(err, "reading Files");
+    }
+}
+
+        //const files = fs.readdirSync(`${config.filesPath}/in`);
+        //for (file in files) {
+        //    await sendFiles (file, access_token)
+        // }
+    
 
 
     // var formData = new FormData();
@@ -50,6 +61,7 @@ const sendFiles = async (access_token) => {
     //     'Content-Type': 'multipart/form-data'
     //     }
     // })
-}
 
-module.exports = sendFiles;
+
+
+module.exports = processFiles;
