@@ -10,16 +10,16 @@ const config = {
         outputFolder: process.env.OUTPUT_FOLDER
     },
     login: {
-        url: "oauth/token",
+        url: process.env.LOGIN_URL,
         bodyParams: {
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.CLIENT_SECRET,
             audience: process.env.AUDIENCE,
-            grant_type: "client_credentials"
+            grant_type: process.env.CLIENT_CREDENTIALS
         }
     },
     transit: {
-        url: "iprov/transito/csv/"
+        url: process.env.TRANSIT_URL
     }
 }
 
