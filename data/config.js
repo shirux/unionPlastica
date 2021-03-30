@@ -14,7 +14,7 @@ const config = {
         }
     },
     "transit": {
-        "url": "iprov/transito/csv"
+        "url": "iprov/transito/csv/"
     }
 }
 

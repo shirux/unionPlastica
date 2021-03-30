@@ -1,3 +1,23 @@
+/**
+ * Within this file we created customized error classes
+ * for each possible scenario within API request and responses
+ */
+
+/**
+ * 400 Bad Request Error
+ */
+ class BadRequestError extends Error {
+    constructor(step = "auth", ...params) {
+        super(...params)
+        this.status = 400;
+        this.step = step;
+        this.message = "Bad request"
+    }
+}
+
+/**
+ * 401 Unauthorized Error
+ */
 class UnauthorizedError extends Error {
     constructor(step = "unknown", ...params) {
         super(...params)
@@ -7,15 +27,9 @@ class UnauthorizedError extends Error {
     }
 }
 
-class BadRequestError extends Error {
-    constructor(step = "auth", ...params) {
-        super(...params)
-        this.status = 400;
-        this.step = step;
-        this.message = "Bad request"
-    }
-}
-
+/**
+ * 403 Forbidden Error
+ */
 class ForbiddenError extends Error {
     constructor(step = "auth", ...params) {
         super(...params)
@@ -25,6 +39,9 @@ class ForbiddenError extends Error {
     }
 }
 
+/**
+ * 404 Not Found Error
+ */
 class NotFoundError extends Error {
     constructor(step = "auth", ...params) {
         super(...params)
@@ -34,6 +51,9 @@ class NotFoundError extends Error {
     }
 }
 
+/**
+ * 405 Method Not Allowed Error
+ */
 class MethodNotAllowedError extends Error {
     constructor(step = "auth", ...params) {
         super(...params)
@@ -43,6 +63,9 @@ class MethodNotAllowedError extends Error {
     }
 }
 
+/**
+ * 500 Server Error
+ */
 class ServerError extends Error {
     constructor (step = "auth", ...params) {
         super(...params)

@@ -11,11 +11,17 @@ const sendFiles = async(file, access_token) => {
         let formData = new FormData();
         formData.append('file', file);
         formData.append('idProv', 1220393);
-        const header = {
-            headers: {Authorization: `Bearer ${access_token}`}
-        };
         console.log(formData);
-        let response = await axios.post(`${config.prodUrl}${config.transit.url}`, formData, header)
+        let response = await axios({
+            method: 'post',
+            url: `${config.prodUrl}${config.transit.url}`,
+            data: formData,
+            headers: {
+                'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+                'Accept-Encoding': 'gzip, deflate, br',
+                Authorization: `Bearer ${access_token}`
+            }
+        })
         // console.log(file)
         console.log(response.status)
         //if (response) {
@@ -37,7 +43,7 @@ const processFiles = async (access_token) => {
                 await sendFiles(file, access_token);
             }
             catch (err) {
-                console.log(err.response.data)
+               // console.log(err.response.data)
                 console.log("holis")
             }
         })  
