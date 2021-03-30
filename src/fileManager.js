@@ -6,12 +6,13 @@ const config = require('../data/config')
 const { ServerError } = require('./error/errorList')
 const handleError = require('./error/error')
 
-const sendFiles = async(file, access_token) => {
+const sendFiles = async(fileName, access_token) => {
     try {
         let formData = new FormData();
+        const filePath = `${config.files.rootFolder}/${config.files.inputFolder}/${fileName}`
+        const file = fs.createReadStream(filePath);
         formData.append('file', file);
         formData.append('idProv', 1220393);
-        console.log(formData);
         let response = await axios({
             method: 'post',
             url: `${config.prodUrl}${config.transit.url}`,
@@ -19,35 +20,45 @@ const sendFiles = async(file, access_token) => {
             headers: {
                 'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
                 'Accept-Encoding': 'gzip, deflate, br',
-                Authorization: `Bearer ${access_token}`
+                 Authorization: `Bearer ${access_token}`
             }
         })
-        // console.log(file)
-        console.log(response.status)
-        //if (response) {
-        //    if (response.status === 200) {
-        //    } else {
-        //        throw new ServerError("send_file");
-        //    }
-        // }
+
+        if (response) {
+            if (response.status === 200) {
+                console.log(response.data)
+            // TODO
+            } else {
+                throw new ServerError("send_file");
+            }
+        }
     } catch (err) {
         throw err
     }
 }
 
 
-const processFiles = async (access_token) => {
+/**
+ * Retrieve all existing files path on a folder. 
+ * For every file try to connect to API Server
+ * @param {string} accessToken Authorization token sent from server
+ */
+const processFiles = async (accessToken) => {
     try {
-        fs.readdirSync(`${config.filesPath}/in`).map(async file => {
+        const folderURL = `${config.files.rootFolder}/${config.files.inputFolder}`;
+        const files = fs.readdirSync(folderURL)
+        for (file of files) {
             try {
-                await sendFiles(file, access_token);
-            }
-            catch (err) {
+                console.log(file)
+                await sendFiles(file, accessToken)
+            } catch (err) {
+                // TODO
+                console.log(err)
                // console.log(err.response.data)
-                console.log("holis")
             }
-        })  
+        }
     } catch (err){
+        console.log(err)
         handleError(err, "reading Files");
     }
 }
