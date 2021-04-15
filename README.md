@@ -15,7 +15,8 @@ Para poder instalar este aplicativo, se requiere lo siguiente:
 Genere una carpeta dentro de su computadora en donde se descargara el proyecto. Puede ubicarse en la ruta que usted desee.
 
 Navegue a esta carpeta en su consola de comandos. Puede usar el siguiente ejemplo:
-```bash cd C:\YourUser\YourPath\YourNewFolder
+```bash 
+cd C:\YourUser\YourPath\YourNewFolder
 ```
 
 Una vez ubicado en esta nueva carpeta, ejecutar el comando de git para clonar el repositorio. 
@@ -23,6 +24,8 @@ Una vez ubicado en esta nueva carpeta, ejecutar el comando de git para clonar el
 git clone https://github.com/shirux/unionPlastica
 ```
 Esto le descargara todos los archivos necesarios para continuar con la instalación
+
+
 
 
 
