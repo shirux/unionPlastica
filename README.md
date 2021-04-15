@@ -19,7 +19,7 @@ Para poder instalar este aplicativo, se requiere lo siguiente:
 - Git
 - NodeJS > v14.16.1
 
-## INSTALACION
+## INSTALACIÓN
 Genere una carpeta dentro de su computadora en donde se descargara el proyecto. Puede ubicarse en la ruta que usted desee.
 
 Navegue a esta carpeta en su consola de comandos. Puede usar el siguiente ejemplo:
@@ -33,13 +33,17 @@ git clone https://github.com/shirux/unionPlastica
 ```
 Esto le descargará todos los archivos necesarios para continuar con la instalación.
 
-Genere el archivo .env a partir del archivo .env.example y actualice cada variable para una correcta parametrización. A continuación una sección dummy de como deberia verse el archivo:
+Genere el archivo ***.env*** a partir del archivo ***.env.example*** y actualice cada variable para una correcta parametrización. A continuación una sección dummy de como deberia verse el archivo:
 ```bash
 # Dev and Prod URL on server side
 DEV_URL=https://dev.yourUrl.com:3000/api
 PROD_URL=https://prod.yourUrl.com/api
 ```
-
 **NOTA: LOS FOLDERS QUE SE ESPECIFICAN EN LA PARAMETRIZACIÓN DEBEN EXISTIR, PUES EL PROGRAMA NO GENERA CARPETAS (PERO SI ALGUNOS ARCHIVOS)**
 
-## 
+Para ejecutar el programa, se debe correr el siguiente comando sobre el folder raiz del proyecto:
+```bash
+node index.js
+```
+
+## SECCIÓN NOVASOFT
