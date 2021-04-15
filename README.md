@@ -4,7 +4,15 @@ Este proyecto nace de la necesidad de poder generar una conexión entre un softw
 En este archivo se encuentra todo el detalle tecnico del desarrollo, los requerimientos para su funcionamiento e instalación, asi como el proceso paso por paso de este ultimo.
 
 ## DETALLE TECNICO
+En esta sección se lista el lenguaje de programación y las librerias y/o dependencias que este proyecto usa para su correcto funcionamiento.
 
+### Lenguaje de programación
+- NodeJS v14.16.1
+
+### Librerias y dependencias
+- Axios v0.21.1 (Conexiones)
+- dotenv v8.2.0 (Parametrizacion)
+- form-data v4.0.0 (Formulario de envio)
 
 ## REQUERIMIENTOS
 Para poder instalar este aplicativo, se requiere lo siguiente:
@@ -32,13 +40,6 @@ DEV_URL=https://dev.yourUrl.com:3000/api
 PROD_URL=https://prod.yourUrl.com/api
 ```
 
-
-
-
-
-
-
-
-
+**NOTA: LOS FOLDERS QUE SE ESPECIFICAN EN LA PARAMETRIZACIÓN DEBEN EXISTIR, PUES EL PROGRAMA NO GENERA CARPETAS (PERO SI ALGUNOS ARCHIVOS)**
 
 ## 
