@@ -1,5 +1,11 @@
 const { UnauthorizedError, ServerError, BadRequestError, ForbiddenError, NotFoundError, MethodNotAllowedError } = require('./errorList')
 
+/**
+ * Por error capturado, personaliza la excepción para generar información más precisa.
+ * Cambia errores de Axios (Poca info) por unos más precisos.
+ * @param {Error} err Error
+ * @param {String} step Paso donde fallo
+ */
 const handleError = (err, step) => {
     if (err.response) {
         switch (err.response.status) {
@@ -17,7 +23,7 @@ const handleError = (err, step) => {
                 throw new ServerError(step);
         }
     }
-    throw new ServerError(step);
+    throw new ServerError(step)
 }   
 
 module.exports = handleError;

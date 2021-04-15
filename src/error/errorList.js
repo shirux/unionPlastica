@@ -11,7 +11,7 @@
         super(...params)
         this.status = 400;
         this.step = step;
-        this.message = "Bad request"
+        this.message = `Bad request. Status code: ${this.status}. Step: ${this.step}`
     }
 }
 
@@ -19,11 +19,11 @@
  * 401 Unauthorized Error
  */
 class UnauthorizedError extends Error {
-    constructor(step = "unknown", ...params) {
+    constructor(step = "unknown",  ...params) {
         super(...params)
         this.status = 401;
         this.step = step;
-        this.message = "Api is not authorized"
+        this.message = `Api is not authorized. Status code: ${this.status}. Step: ${this.step}`
     }
 }
 
@@ -35,7 +35,7 @@ class ForbiddenError extends Error {
         super(...params)
         this.status = 403;
         this.step = step;
-        this.message = "User is forbidden"
+        this.message = `User is forbidden Status code: ${this.status}. Step: ${this.step}`
     }
 }
 
@@ -47,7 +47,7 @@ class NotFoundError extends Error {
         super(...params)
         this.status = 404;
         this.step = step;
-        this.message = "Not found"
+        this.message = `Not found. Status code: ${this.status}. Step: ${this.step}`
     }
 }
 
@@ -59,7 +59,7 @@ class MethodNotAllowedError extends Error {
         super(...params)
         this.status = 405;
         this.step = step;
-        this.message = "Method not allowed"
+        this.message = `Method not allowed. Status code: ${this.status}. Step: ${this.step}`
     }
 }
 
@@ -67,11 +67,12 @@ class MethodNotAllowedError extends Error {
  * 500 Server Error
  */
 class ServerError extends Error {
-    constructor (step = "auth", ...params) {
+    constructor (step = "", ...params) {
         super(...params)
         this.status = 500;
         this.step = step;
-        this.message = "Server error"
+        this.message = `Server error. Status code: ${this.status}.`
+        if (this.step) this.message += ` Step: ${this.step}`
     }
 }
 

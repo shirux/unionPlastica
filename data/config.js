@@ -7,7 +7,9 @@ const config = {
     files: {
         rootFolder: process.env.FILES_FOLDER_PATH,
         inputFolder: process.env.INPUT_FOLDER,
-        outputFolder: process.env.OUTPUT_FOLDER
+        outputFolder: process.env.OUTPUT_FOLDER,
+        logFolder: process.env.LOG_FOLDER,
+        errorLogFolder: process.env.ERROR_LOG_FOLDER
     },
     login: {
         url: process.env.LOGIN_URL,

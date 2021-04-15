@@ -2,20 +2,28 @@ const axios = require('axios');
 const config = require('../data/config')
 const handleError = require('./error/error')
 const { ServerError } = require('./error/error')
+const Log = require('./log');
 
 /**
- * Build an axios post request to authenticate against API server.
- * @returns access_token
+ * Construye una petición POST en axios para autenticarse ante el API Server
+ * 
+ * En caso de fallos levanta un error. Puede fallar en los siguientes casos:
+ * 1. No encuentra la url para conectarse
+ * 2. No está correctamente parametrizado el cliente
+ * 3. No hay internet
+ * 
+ * @returns Token de acceso
  */
 const authenticate = async() => {
-    // Retrieve bodyParams from config file
+    // Define la variable bodyParams a partir del archivo config
     const bodyParams = config.login.bodyParams
 
     try {
-        // POST request, if status is 200, return access_token, otherwise throw a serverError
+        // Petición POST, si el status es 200, retorna el access_token, en caso contrario, tira error
         const response = await axios.post(`${config.devUrl}${config.login.url}`, bodyParams);
         if (response) {
             if (response.status === 200) {
+                Log.registerAction()
                 return response.data.access_token;
             }
             else {
