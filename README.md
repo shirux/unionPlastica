@@ -46,7 +46,7 @@ Genere el archivo ***.env*** a partir del archivo ***.env.example*** y actualice
 DEV_URL=https://dev.yourUrl.com:3000/api
 PROD_URL=https://prod.yourUrl.com/api
 ```
-**NOTA: LOS FOLDERS QUE SE ESPECIFICAN EN LA PARAMETRIZACIÓN DEBEN EXISTIR, PUES EL PROGRAMA NO GENERA CARPETAS (PERO SI ALGUNOS ARCHIVOS)**
+**NOTA: Las carpetas que se especifican en el archivo de parametrización deben existir, pues el programa no crea estas carpetas (Aunque si crea algunos archivos)**
 
 Para ejecutar el programa, se debe correr el siguiente comando sobre el folder raiz del proyecto:
 ```bash
