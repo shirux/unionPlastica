@@ -2,6 +2,13 @@
 Este proyecto nace de la necesidad de poder generar una conexión entre un software ERP contable (Novasoft empresarial) y un servidor que expone un APIRest para la recepción de datos (Baterias WIllard).
 
 En este archivo se encuentra todo el detalle tecnico del desarrollo, los requerimientos para su funcionamiento e instalación, asi como el proceso paso por paso de este ultimo.
+Adicional, encontrará secciones correspondientes a la explicación de su funcionamiento, asi como las ejecuciones en cada caso de error.
+
+## FUNCIONAMIENTO
+TODO
+
+## FLUJO DE ERRORES
+TODO
 
 ## DETALLE TECNICO
 En esta sección se lista el lenguaje de programación y las librerias y/o dependencias que este proyecto usa para su correcto funcionamiento.
@@ -45,5 +52,3 @@ Para ejecutar el programa, se debe correr el siguiente comando sobre el folder r
 ```bash
 node index.js
 ```
-
-## SECCIÓN NOVASOFT
