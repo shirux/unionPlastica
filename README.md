@@ -23,7 +23,16 @@ Una vez ubicado en esta nueva carpeta, ejecutar el comando de git para clonar el
 ```bash 
 git clone https://github.com/shirux/unionPlastica
 ```
-Esto le descargara todos los archivos necesarios para continuar con la instalación
+Esto le descargará todos los archivos necesarios para continuar con la instalación.
+
+Genere el archivo .env a partir del archivo .env.example y actualice cada variable para una correcta parametrización. A continuación una sección dummy de como deberia verse el archivo:
+```bash
+# Dev and Prod URL on server side
+DEV_URL=https://dev.yourUrl.com:3000/api
+PROD_URL=https://prod.yourUrl.com/api
+```
+
+
 
 
 
