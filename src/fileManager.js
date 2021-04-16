@@ -29,6 +29,11 @@ const sendFiles = async(fileName, accessToken, idProv="1220393") => {
         const file = fs.createReadStream(filePath);
         formData.append('file', file);
         formData.append('idProv', 1220393);
+        console.log('formData')
+        console.log(formData)
+        const url = `${config.prodUrl}${config.transit.url}`
+        console.log('url')
+        console.log(url)
 
         // Construye la petición
         let response = await axios({
