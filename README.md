@@ -40,6 +40,11 @@ git clone https://github.com/shirux/unionPlastica
 ```
 Esto le descargará todos los archivos necesarios para continuar con la instalación.
 
+Una vez descargados los archivos, proceda a instalar las dependencias con el siguiente comando (ejecutado sobre el root del programa)
+```bash
+npm install
+```
+
 Genere el archivo ***.env*** a partir del archivo ***.env.example*** y actualice cada variable para una correcta parametrización. A continuación una sección dummy de como deberia verse el archivo:
 ```bash
 # Dev and Prod URL on server side
