@@ -7,6 +7,7 @@ const { UnauthorizedError, ServerError, BadRequestError, ForbiddenError, NotFoun
  * @param {String} step Paso donde fallo
  */
 const handleError = (err, step) => {
+    console.log(err)
     if (err.response) {
         switch (err.response.status) {
             case 400:
