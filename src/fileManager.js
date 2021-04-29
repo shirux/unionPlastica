@@ -1,4 +1,3 @@
-const path = require('path');
 const fs = require('fs');
 var FormData = require('form-data');
 const axios = require('axios');
@@ -83,8 +82,8 @@ const processFiles = async (accessToken) => {
                 throw err
             }
         }
-    } catch (err){
-        throw err
+    } catch (err) {
+        handleError(err, "process File")
     }
 }
 
