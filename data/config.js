@@ -4,6 +4,9 @@ const config = {
     devUrl: process.env.DEV_URL,
     prodUrl: process.env.PROD_URL,
     filesPath: process.env.FILES_PATH,
+    client: {
+        idProv: process.env.ID_PROV
+    },
     files: {
         rootFolder: process.env.FILES_FOLDER_PATH,
         inputFolder: process.env.INPUT_FOLDER,

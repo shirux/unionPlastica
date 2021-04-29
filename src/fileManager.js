@@ -28,7 +28,7 @@ const sendFiles = async(fileName, accessToken, idProv="1220393") => {
         const filePath = `${config.files.rootFolder}/${config.files.inputFolder}/${fileName}`
         const file = fs.createReadStream(filePath);
         formData.append('file', file);
-        formData.append('idProv', 1220393);
+        formData.append('idProv', config.client.idProv);
         const url = `${config.prodUrl}${config.transit.url}`
 
         // Construye la petición
