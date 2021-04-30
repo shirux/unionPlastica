@@ -5,10 +5,26 @@ En este archivo se encuentra todo el detalle tecnico del desarrollo, los requeri
 Adicional, encontrará secciones correspondientes a la explicación de su funcionamiento, asi como las ejecuciones en cada caso de error.
 
 ## FUNCIONAMIENTO
-TODO
+Entendiendo que la finalidad del software es poder automatizar un proceso interno del negocio, el funcionamiento es completamente transparente tanto para el ERP como para las mismas personas que lo operan.
 
-## FLUJO DE ERRORES
-TODO
+Este será llamado desde el software contable como un paso adicional y se ejecutará en el fondo, sin interrumpir el trabajo de la persona que está operando.
+
+A continuación se describe el hilo principal del software en caso de éxito (procesos y subprocesos):
+
+- Autenticación
+- Entrada log de autenticación
+- Búsqueda de archivos a enviar en folder:
+    - Envío del archivo (Por cada archivo encontrado en el folder)
+    - Entrada de log por envío de archivo
+    - Reubicación de archivo a diferente carpeta 
+    - Entrada de log por reubicación de archivo
+Registro de resultado
+
+Si durante la ejecución del hilo principal ocurre un error o excepción, se ejecutará el siguiente hilo:
+
+- Personalización del error
+- Registro de log error
+- Registro de resultado
 
 ## DETALLE TECNICO
 En esta sección se lista el lenguaje de programación y las librerias y/o dependencias que este proyecto usa para su correcto funcionamiento.
