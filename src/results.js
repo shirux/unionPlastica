@@ -14,7 +14,10 @@ const registerResult = async (envios, error = null) => {
         
         // Caso de error
         if (error) { 
-            resultado = `1; ${error.status}`
+            resultado = `1; ${error.status}\n`
+            error.data.forEach(data => {
+                resultado += `1; ${data}\n`
+            })
         } else { // Caso Exito
             resultado = `0`
             if (envios) {
