@@ -20,7 +20,7 @@ const Log = require('./log');
  * @param {String} accessToken Token de autenticación del usuario
  * @param {String} idProv Id del proveedor del archivo (ID del cliente)
  */
-const sendFiles = async(fileName, accessToken, idProv="1220393") => {
+const sendFiles = async(fileName, accessToken) => {
     try { 
         // Lee el archivo y construye formulario de envio
         let formData = new FormData();
