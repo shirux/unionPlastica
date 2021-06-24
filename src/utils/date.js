@@ -2,7 +2,7 @@
  * Objeto encargado de darle un formato estandar a las fechas
  */
 const DateFormatter = {
-    months: ['Ene', 'Feb', 'Mar', 'Abr', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    months: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
 
     /**
      * Retorna la fecha de hoy en formato dd/mm/yyyy hh:mm:ss am|pm
