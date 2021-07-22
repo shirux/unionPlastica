@@ -39,7 +39,7 @@ En esta sección se lista el lenguaje de programación y las librerias y/o depen
 
 ## REQUERIMIENTOS
 Para poder instalar este aplicativo, se requiere lo siguiente:
-- Git
+- Git (Puede instalarse en windows con git bash https://git-scm.com/downloads)
 - NodeJS > v14.16.1
 
 ## INSTALACIÓN
